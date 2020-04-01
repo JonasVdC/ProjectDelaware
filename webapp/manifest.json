@@ -14,7 +14,6 @@
 			"version": "1.40.12"
 		}
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
@@ -31,7 +30,6 @@
 			"phone": true
 		}
 	},
-
 	"sap.ui5": {
 		"flexEnabled": false,
 		"rootView": {
@@ -76,9 +74,9 @@
 				"clearControlAggregation": false
 			},
 			"routes": [{
-				"name": "RouteApp",
-				"pattern": "RouteApp",
-				"target": ["TargetApp"]
+				"name": "YFI03",
+				"pattern": "",
+				"target": ["YFI03"]
 			}],
 			"targets": {
 				"TargetApp": {
@@ -87,6 +85,10 @@
 					"clearControlAggregation": false,
 					"viewId": "App",
 					"viewName": "App"
+				},
+				"YFI03": {
+					"viewType": "XML",
+					"viewName": "YFI03"
 				}
 			}
 		}
