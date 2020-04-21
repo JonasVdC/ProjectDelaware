@@ -10,8 +10,27 @@
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
 		"sourceTemplate": {
-			"id": "ui5template.basicSAPUI5ApplicationProject",
-			"version": "1.40.12"
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"YXM_166_DELAWARE_PROJECT_SRV": {
+				"uri": "/SAPGateway/sap/opu/odata/sap/YXM_166_DELAWARE_PROJECT_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/metadata.xml",
+					"annotations": [
+						"annotation0"
+					]
+				}
+			},
+			"annotation0": {
+				"type": "ODataAnnotation",
+				"uri": "annotation0.xml",
+				"settings": {
+					"localUri": "annotation0.xml"
+				}
+			}
 		}
 	},
 	"sap.ui": {
@@ -56,12 +75,28 @@
 				"settings": {
 					"bundleName": "del.proj.ProjectDelaware.i18n.i18n"
 				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "YXM_166_DELAWARE_PROJECT_SRV",
+				"preload": true
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -73,11 +108,15 @@
 				"controlId": "app",
 				"clearControlAggregation": false
 			},
-			"routes": [{
-				"name": "YFI03",
-				"pattern": "",
-				"target": ["YFI03"]
-			}],
+			"routes": [
+				{
+					"name": "YFI03",
+					"pattern": "",
+					"target": [
+						"YFI03"
+					]
+				}
+			],
 			"targets": {
 				"TargetApp": {
 					"viewType": "XML",

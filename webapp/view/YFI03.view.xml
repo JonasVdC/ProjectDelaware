@@ -1,9 +1,28 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="del.proj.ProjectDelaware.controller.YFI03"
-	xmlns:html="http://www.w3.org/1999/xhtml">
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:html="http://www.w3.org/1999/xhtml">
 	<App>
 		<pages>
 			<Page title="{i18n>03title}">
-				<content></content>
+				<content>
+				<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="payment_runSet" persistencyKey="SmartFilter_Explored" basicSearchFieldName="Laufi"
+							enableBasicSearch="true">
+							<smartFilterBar:controlConfiguration>
+								<smartFilterBar:ControlConfiguration visible="true" visibleInAdvancedArea="true"/>
+							</smartFilterBar:controlConfiguration>
+							<smartFilterBar:layoutData>
+								<FlexItemData shrinkFactor="0"/>
+							</smartFilterBar:layoutData>
+						</smartFilterBar:SmartFilterBar>	
+					
+				<smartTable:SmartTable id="LineItemsSmartTable" entitySet="payment_runSet"
+						smartFilterId="smartFilterBar" tableType="Table" useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true"
+						useTablePersonalisation="true" header="payment runs" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true"
+						class="sapUiResponsiveContentPadding">
+						<smartTable:layoutData>
+							<FlexItemData growFactor="1" baseSize="0%"/>
+						</smartTable:layoutData>
+					</smartTable:SmartTable>
+				</content>
 			</Page>
 		</pages>
 	</App>
